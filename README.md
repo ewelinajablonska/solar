@@ -1,6 +1,6 @@
-#SOLAR - app for Sales Department
+# SOLAR - app for Sales Department
 
-##Table of contents
+## Table of contents
 * [General info](#general-info)
 * [Prerequisites](#rerequisites)
 * [Technologies](#technologies)
