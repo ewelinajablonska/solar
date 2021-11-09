@@ -22,3 +22,32 @@ class Client(models.Model):
     def __str__(self):
         """Return the string representation of the model."""
         return f"{self.first_name} {self.last_name}"
+
+class Building(models.Model):
+    """Information about the place of the instalation"""
+    roof_covering_list = [
+        ('Blachodachówka Novotegra', 'Blachodachówka Novotegra'),
+        ('Dachówka Ceramiczna Novotegra', 'Dachówka Ceramiczna Novotegra'),
+        ('Blachotrapez Novotegra', 'Blachotrapez Novotegra'),
+        ('Aero Południe Novotegra', 'Aero Południe Novotegra'),
+        ('Aero Wschód-Zachód Novotegra','Aero Wschód-Zachód Novotegra'),
+        ('Grunt CORAB', 'Grunt CORAB')
+    ]
+    #client_ID = models.ForeignKey(Client, on_delete=models.CASCADE, related_name='buildings')
+    street = models.CharField(max_length=70, blank = True)
+    house_number = models.CharField(max_length=10, blank = True)
+    flat_number = models.CharField(max_length=10, blank = True)
+    code = models.CharField(max_length=6, blank = True)
+    city = models.CharField(max_length=70, blank = True)
+    province = models.CharField(max_length=70, blank = True)
+    roof_covering = models.CharField(max_length=70, choices=roof_covering_list)
+    roof_type = models.CharField(max_length=70, blank = True) #choices=roof_type_list
+    roof_slope = models.PositiveSmallIntegerField(default=0) #choices=roof_slope_list
+    roof_orientation = models.PositiveSmallIntegerField(default=0) #choices=roof_orientation_list
+    roof_direction = models.CharField(max_length=70, blank = True) #choices=roof_direction_list
+    windows_number = models.IntegerField(default=0)
+    chimney_number = models.IntegerField(default=1)
+
+    def __str__(self):
+        """Return the string representation of the model."""
+        return f"{self.city} {self.street}"
