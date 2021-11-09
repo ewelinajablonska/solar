@@ -17,7 +17,7 @@ See the Docker website for installation instructions.
 ## Technologies
 Project is created with:
 * Python version: 3.8.10
-* Django
+* Django version: 3.2.9
 * Git version: 2.25.1
 * Docker version: 20.10.7, build 20.10.7-0ubuntu5~20.04.2
 
