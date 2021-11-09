@@ -39,9 +39,9 @@ $ docker build --tag="my_app" .
 $ docker run my_app
 ```
 
-4. Once everything has started up, you should be able to access the webapp via http://localhost:8000/ on your host machine.
+4. Once everything has started up, you should be able to access the webapp via http://localhost:8080/ on your host machine.
 ```
-$ open: http://localhost:8000/
+$ open: http://localhost:8080/
 ```
 
 You can also login to the image and have a look around:
