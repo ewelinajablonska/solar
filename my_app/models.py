@@ -51,3 +51,24 @@ class Building(models.Model):
     def __str__(self):
         """Return the string representation of the model."""
         return f"{self.city} {self.street}"
+
+class Installation(models.Model):
+    """Information about instalation"""
+    client_id = models.ForeignKey(Client, on_delete=models.CASCADE, related_name= 'installations')
+    building_id = models.ForeignKey(Building, on_delete=models.CASCADE)
+    power = models.PositiveSmallIntegerField()
+    modules = models.CharField(max_length=70, blank = True) #choices=modules_list
+    modules_number = models.PositiveSmallIntegerField(default=1)
+    inverter_producer = models.CharField(max_length=70, blank = True) #choices=inverter_producer_list
+    inverter_model = models.CharField(max_length=70, blank = True) #choices=inverter_model_list
+    inverter_number = models.PositiveSmallIntegerField(default=1)
+    optimizer = models.CharField(max_length=70, blank = True) #choices=optimizer_list
+    optimizer_number = models.PositiveSmallIntegerField(default=0)
+    add_warranty = models.BooleanField(default=False)
+    add_component_1 = models.CharField(max_length=70) #choices=add_component_list
+    add_component_2 = models.CharField(max_length=70) #choices=add_component_list
+    add_component_3 = models.CharField(max_length=70) #choices=add_component_list
+
+    def __str__(self):
+        """Return the string representation of the model."""
+        return f"{self.power}"
