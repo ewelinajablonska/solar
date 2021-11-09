@@ -25,27 +25,27 @@ Project is created with:
 Steps to build a Docker image:
 
 1. Clone this repo
-...
-git clone https://github.com/ewelinajablonska/solar.git
-...
+```
+$ git clone https://github.com/ewelinajablonska/solar.git
+```
 
 2. Build the image
-...
-docker build --tag="my_app" .
-...
+```
+$ docker build --tag="my_app" .
+```
 
 3. Run the image's default command, which should start everything up. (Note that the host will actually be a guest if you are using boot2docker, so you may need to re-forward the port in VirtualBox.)
-...
-docker run my_app
-...
+```
+$ docker run my_app
+```
 
 4. Once everything has started up, you should be able to access the webapp via http://localhost:8000/ on your host machine.
-...
-open: http://localhost:8000/
-...
+```
+$ open: http://localhost:8000/
+```
 
 You can also login to the image and have a look around:
-...
-docker run -i -t my-app /bin/bash
-...
+```
+$ docker run -i -t my-app /bin/bash
+```
 
