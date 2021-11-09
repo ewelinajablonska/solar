@@ -72,3 +72,21 @@ class Installation(models.Model):
     def __str__(self):
         """Return the string representation of the model."""
         return f"{self.power}"
+
+class Offer(models.Model):
+    """Summary for client with price and all informations about discounts"""
+    client_id = models.ForeignKey(Client, on_delete=models.CASCADE, related_name='oferts')
+    building_id = models.ForeignKey(Building, on_delete=models.CASCADE)
+    installation_id = models.ForeignKey(Installation, on_delete=models.CASCADE)
+    status = models.CharField(max_length=70, blank = True)
+    netto_price = models.DecimalField(max_digits = 10, decimal_places=2)
+    tax_value = models.DecimalField(max_digits = 10,decimal_places=2)
+    discount = models.DecimalField(max_digits = 10,decimal_places=2)
+    brutto_price = models.DecimalField(max_digits = 10,decimal_places=2)
+    bonus_moj_prad = models.DecimalField(max_digits = 10,decimal_places=2)
+    tax_refund = models.DecimalField(max_digits = 10,decimal_places=2)
+    final_costs = models.DecimalField(max_digits = 10,decimal_places=2)
+
+    def __str__(self):
+        """Return the string representation of the model."""
+        return f"{self.final_costs}"
