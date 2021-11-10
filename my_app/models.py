@@ -56,6 +56,20 @@ class Building(models.Model):
         ('Aero Wschód-Zachód Novotegra','Aero Wschód-Zachód Novotegra'),
         ('Grunt CORAB', 'Grunt CORAB')
     ]
+    roof_slope_list=[
+        ('0','0'),
+        ('5','5'),
+        ('10','10'),
+        ('15','15'),
+        ('20','20'),
+        ('25','25'),
+        ('30','30'),
+        ('35','35'),
+        ('40','40'),
+        ('45','45'),
+        ('50','50'),
+        ('90','90'),
+    ]
     client_ID = models.ForeignKey(Client, on_delete=models.CASCADE, related_name='buildings')
     street = models.CharField(max_length=70, blank = True)
     house_number = models.CharField(max_length=10, blank = True)
@@ -86,7 +100,7 @@ class Building(models.Model):
             ('grunt', 'grunt'),
         ]
         roof_type = models.CharField(max_length=70, choices=roof_type_list)
-    roof_slope = models.PositiveSmallIntegerField(default=0) #choices=roof_slope_list
+    roof_slope = models.PositiveSmallIntegerField(default=0, choices=roof_slope_list)
     roof_orientation = models.PositiveSmallIntegerField(default=0) #choices=roof_orientation_list
     roof_direction = models.CharField(max_length=70, blank = True) #choices=roof_direction_list
     windows_number = models.IntegerField(default=0)
