@@ -46,6 +46,8 @@ class Client(models.Model):
 
 class Building(models.Model):
     """Information about the place of the instalation"""
+
+    """chices lists for that model"""
     roof_covering_list = [
         ('Blachodachówka Novotegra', 'Blachodachówka Novotegra'),
         ('Dachówka Ceramiczna Novotegra', 'Dachówka Ceramiczna Novotegra'),
@@ -62,7 +64,28 @@ class Building(models.Model):
     city = models.CharField(max_length=70, blank = True)
     province = models.CharField(max_length=70, blank = True)
     roof_covering = models.CharField(max_length=70, choices=roof_covering_list)
-    roof_type = models.CharField(max_length=70, blank = True) #choices=roof_type_list
+    if roof_covering in ('Blachodachówka Novotegra', 'Dachówka Ceramiczna Novotegra','Blachotrapez Novotegra'):
+        roof_type_list= [
+            ('dach skośny', 'dach skośny'),
+        ]
+        roof_type = models.CharField(max_length=70, choices=roof_type_list)
+    elif roof_covering in ('Aero Południe Novotegra', 'Aero Wschód-Zachód Novotegra'):
+        roof_type_list= [
+            ('dach płaski', 'dach płaski'),
+        ]
+        roof_type = models.CharField(max_length=70, choices=roof_type_list)
+    elif roof_covering == 'Grunt CORAB':
+        roof_type_list= [
+            ('grunt', 'grunt'),
+        ]
+        roof_type = models.CharField(max_length=70, choices=roof_type_list)
+    else:
+        roof_type_list= [
+            ('dach skośny', 'dach skośny'),
+            ('dach płaski', 'dach płaski'),
+            ('grunt', 'grunt'),
+        ]
+        roof_type = models.CharField(max_length=70, choices=roof_type_list)
     roof_slope = models.PositiveSmallIntegerField(default=0) #choices=roof_slope_list
     roof_orientation = models.PositiveSmallIntegerField(default=0) #choices=roof_orientation_list
     roof_direction = models.CharField(max_length=70, blank = True) #choices=roof_direction_list
