@@ -109,8 +109,7 @@ class Building(models.Model):
         (0, '0 - południe'),
     ]
     roof_slope = models.PositiveSmallIntegerField(default=0, choices=roof_slope_list)
-    roof_orientation = models.PositiveSmallIntegerField(default=0, choices = roof_orientation_list) #choices=roof_orientation_list
-    roof_direction = models.CharField(max_length=70, blank = True) #choices=roof_direction_list
+    roof_orientation = models.PositiveSmallIntegerField(default=0, choices = roof_orientation_list)
     windows_number = models.IntegerField(default=0)
     chimney_number = models.IntegerField(default=1)
 
