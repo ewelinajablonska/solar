@@ -115,7 +115,10 @@ class Building(models.Model):
 
     def __str__(self):
         """Return the string representation of the model."""
-        return f"{self.city} {self.street}"
+        if self.flat_number==None:
+            return f"{self.city}, {self.street} {self.house_number}"
+        else:
+            return f"{self.city}, {self.street} {self.house_number}/{self.flat_number}"
 
 class Installation(models.Model):
     """Information about instalation"""
