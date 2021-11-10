@@ -23,7 +23,7 @@ class Client(models.Model):
         ("woj. wielkopolskie", "woj. wielkopolskie"),
         ("woj. zachodniopomorskie", "woj. zachodniopomorskie"),
     ]
-    
+
     first_name = models.CharField(max_length=70, blank = True)
     last_name = models.CharField(max_length=70, blank = True)
     street = models.CharField(max_length=70, blank = True)
@@ -33,7 +33,7 @@ class Client(models.Model):
     city = models.CharField(max_length=70, blank = True)
     province = models.CharField(max_length=20, blank = True)
     id_number = models.CharField(max_length=8, blank=True)
-    PESEL = models.PositiveSmallIntegerField(max_length=11, default=0)
+    PESEL = models.PositiveSmallIntegerField(max_length=11, min_lenght=11, default=0)
     phone_number = models.CharField(max_length=70, blank = True)
     email = models.EmailField(blank = True)
     first_contact_date = models.DateField(auto_now_add=True, blank = True)
