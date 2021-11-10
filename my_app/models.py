@@ -57,20 +57,20 @@ class Building(models.Model):
         ('Grunt CORAB', 'Grunt CORAB')
     ]
     roof_slope_list=[
-        ('0','0'),
-        ('5','5'),
-        ('10','10'),
-        ('15','15'),
-        ('20','20'),
-        ('25','25'),
-        ('30','30'),
-        ('35','35'),
-        ('40','40'),
-        ('45','45'),
-        ('50','50'),
-        ('90','90'),
+        (0,'0'),
+        (5,'5'),
+        (10,'10'),
+        (15,'15'),
+        (20,'20'),
+        (25,'25'),
+        (30,'30'),
+        (35,'35'),
+        (40,'40'),
+        (45,'45'),
+        (50,'50'),
+        (90,'90'),
     ]
-    client_ID = models.ForeignKey(Client, on_delete=models.CASCADE, related_name='buildings')
+    client = models.ForeignKey(Client, on_delete=models.CASCADE, related_name='buildings')
     street = models.CharField(max_length=70, blank = True)
     house_number = models.CharField(max_length=10, blank = True)
     flat_number = models.CharField(max_length=10, blank = True)
