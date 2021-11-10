@@ -3,6 +3,27 @@ from django.db import models
 # Create your models here.
 class Client(models.Model):
     """Information about client"""
+
+    """choices lists for that model"""
+    province_list = [
+        ("woj. dolnośląskie","woj. dolnośląskie"),
+        ("woj. kujawsko-pomorskie", "woj. kujawsko-pomorskie"),
+        ("woj. lubelskie", "woj. lubelskie"),
+        ("woj. lubuskie", "woj. lubuskie"),
+        ("woj. łódzkie", "woj. łódzkie"),
+        ("woj. małopolskie", "woj. małopolskie"),
+        ("woj. mazowieckie", "woj. mazowieckie"),
+        ("woj. opolskie", "woj. opolskie"),
+        ("woj. podkarpackie", "woj. podkarpackie"),
+        ("woj. podlaskie", "woj. podlaskie"),
+        ("woj. pomorskie", "woj. pomorskie"),
+        ("woj. śląskie", "woj. śląskie"),
+        ("woj. świętokrzyskie", "woj. świętokrzyskie"),
+        ("woj. warmińsko-mazurskie", "woj. warmińsko-mazurskie"),
+        ("woj. wielkopolskie", "woj. wielkopolskie"),
+        ("woj. zachodniopomorskie", "woj. zachodniopomorskie"),
+    ]
+    
     first_name = models.CharField(max_length=70, blank = True)
     last_name = models.CharField(max_length=70, blank = True)
     street = models.CharField(max_length=70, blank = True)
