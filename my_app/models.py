@@ -70,13 +70,39 @@ class Building(models.Model):
         (50,'50'),
         (90,'90'),
     ]
+    roof_orientation_list = [
+        (90, '90 - wschód/zachód'),
+        (60, '60 - południowy wschód/zachód'),
+        (45, '45 - południowy wschód/zachód'),
+        (30, '30 - południowy wschód/zachód'),
+        (0, '0 - południe'),
+    ]
+    province_list = [
+        ("woj. dolnośląskie","woj. dolnośląskie"),
+        ("woj. kujawsko-pomorskie", "woj. kujawsko-pomorskie"),
+        ("woj. lubelskie", "woj. lubelskie"),
+        ("woj. lubuskie", "woj. lubuskie"),
+        ("woj. łódzkie", "woj. łódzkie"),
+        ("woj. małopolskie", "woj. małopolskie"),
+        ("woj. mazowieckie", "woj. mazowieckie"),
+        ("woj. opolskie", "woj. opolskie"),
+        ("woj. podkarpackie", "woj. podkarpackie"),
+        ("woj. podlaskie", "woj. podlaskie"),
+        ("woj. pomorskie", "woj. pomorskie"),
+        ("woj. śląskie", "woj. śląskie"),
+        ("woj. świętokrzyskie", "woj. świętokrzyskie"),
+        ("woj. warmińsko-mazurskie", "woj. warmińsko-mazurskie"),
+        ("woj. wielkopolskie", "woj. wielkopolskie"),
+        ("woj. zachodniopomorskie", "woj. zachodniopomorskie"),
+    ]
+
     client_id = models.ForeignKey(Client, on_delete=models.CASCADE, related_name='buildings')
     street = models.CharField(max_length=70, blank = True)
     house_number = models.CharField(max_length=10, blank = True)
     flat_number = models.CharField(max_length=10, blank = True)
     code = models.CharField(max_length=6, blank = True)
     city = models.CharField(max_length=70, blank = True)
-    province = models.CharField(max_length=70, blank = True)
+    province = models.CharField(max_length=70, blank = True, choices=province_list)
     roof_covering = models.CharField(max_length=70, choices=roof_covering_list)
     if roof_covering in ('Blachodachówka Novotegra', 'Dachówka Ceramiczna Novotegra','Blachotrapez Novotegra'):
         roof_type_list= [
@@ -100,14 +126,6 @@ class Building(models.Model):
             ('grunt', 'grunt'),
         ]
         roof_type = models.CharField(max_length=70, choices=roof_type_list)
-
-    roof_orientation_list = [
-        (90, '90 - wschód/zachód'),
-        (60, '60 - południowy wschód/zachód'),
-        (45, '45 - południowy wschód/zachód'),
-        (30, '30 - południowy wschód/zachód'),
-        (0, '0 - południe'),
-    ]
     roof_slope = models.PositiveSmallIntegerField(default=0, choices=roof_slope_list)
     roof_orientation = models.PositiveSmallIntegerField(default=0, choices = roof_orientation_list)
     windows_number = models.IntegerField(default=0)
