@@ -56,7 +56,7 @@ class Building(models.Model):
         ('Aero Wschód-Zachód Novotegra','Aero Wschód-Zachód Novotegra'),
         ('Grunt CORAB', 'Grunt CORAB')
     ]
-    #client_ID = models.ForeignKey(Client, on_delete=models.CASCADE, related_name='buildings')
+    client_ID = models.ForeignKey(Client, on_delete=models.CASCADE, related_name='buildings')
     street = models.CharField(max_length=70, blank = True)
     house_number = models.CharField(max_length=10, blank = True)
     flat_number = models.CharField(max_length=10, blank = True)
