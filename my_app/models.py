@@ -70,7 +70,7 @@ class Building(models.Model):
         (50,'50'),
         (90,'90'),
     ]
-    client = models.ForeignKey(Client, on_delete=models.CASCADE, related_name='buildings')
+    client_id = models.ForeignKey(Client, on_delete=models.CASCADE, related_name='buildings')
     street = models.CharField(max_length=70, blank = True)
     house_number = models.CharField(max_length=10, blank = True)
     flat_number = models.CharField(max_length=10, blank = True)
@@ -100,8 +100,16 @@ class Building(models.Model):
             ('grunt', 'grunt'),
         ]
         roof_type = models.CharField(max_length=70, choices=roof_type_list)
+
+    roof_orientation_list = [
+        (90, '90 - wschód/zachód'),
+        (60, '60 - południowy wschód/zachód'),
+        (45, '45 - południowy wschód/zachód'),
+        (30, '30 - południowy wschód/zachód'),
+        (0, '0 - południe'),
+    ]
     roof_slope = models.PositiveSmallIntegerField(default=0, choices=roof_slope_list)
-    roof_orientation = models.PositiveSmallIntegerField(default=0) #choices=roof_orientation_list
+    roof_orientation = models.PositiveSmallIntegerField(default=0, choices = roof_orientation_list) #choices=roof_orientation_list
     roof_direction = models.CharField(max_length=70, blank = True) #choices=roof_direction_list
     windows_number = models.IntegerField(default=0)
     chimney_number = models.IntegerField(default=1)
